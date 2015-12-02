@@ -1,59 +1,67 @@
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="domain.fake.tictactoe.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    android:columnOrderPreserved="false"
+    android:stretchColumns="0,1,2">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"></TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
 
         <TableLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:stretchColumns="0,1,2"
-            app:layout_widthPercent="100%"
-            app:layout_aspectRatio="100%">
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:stretchColumns="0,1,2">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:id="@+id/space00"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:id="@+id/space01"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button2" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button3" />
-                </FrameLayout>
+                    android:layout_height="match_parent"
+                    android:id="@+id/space02"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow
@@ -61,38 +69,35 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:id="@+id/space10"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button4" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:id="@+id/space11"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button5" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button6" />
-                </FrameLayout>
+                    android:layout_height="match_parent"
+                    android:id="@+id/space12"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow
@@ -100,38 +105,46 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:id="@+id/space20"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button7" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:id="@+id/space21"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button8" />
-                </FrameLayout>
-
-                <FrameLayout
+                <ImageButton
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="New Button"
-                        android:id="@+id/button9" />
-                </FrameLayout>
+                    android:layout_height="match_parent"
+                    android:id="@+id/space22"
+                    android:src="@drawable/tictactoe_levellist"
+                    android:background="#00ffffff"
+                    android:baselineAlignBottom="false"
+                    android:scaleType="fitCenter"
+                    android:clickable="true" />
             </TableRow>
         </TableLayout>
-</android.support.percent.PercentRelativeLayout>
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"></TableRow>
+
+</TableLayout>

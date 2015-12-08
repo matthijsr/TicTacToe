@@ -41,10 +41,32 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
 
         setAllListeners(view);
 
+        retainBoard();
+
 
 
 
         return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Retain this fragment across configuration changes.
+        setRetainInstance(true);
+    }
+
+    public void retainBoard()
+    {
+        LevelListDrawable levelList;
+        ImageView iv;
+        for(int i=0; i<9; i++)
+        {
+            iv = btn[i];
+            levelList = (LevelListDrawable)iv.getDrawable();
+            levelList.setLevel(status[i]);
+        }
     }
 
     public void setAllListeners(View view)
@@ -101,14 +123,7 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
         builder1.setPositiveButton(R.string.restart,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        MainActivityFragment restartFragment = new MainActivityFragment();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragment, restartFragment);
-                        transaction.addToBackStack(null);
-                        Fragment frg = getFragmentManager().findFragmentById(R.id.fragment);
-                        transaction.remove(frg);
-                        transaction.commit();
-                        getFragmentManager().popBackStack();
+                        resetBoard();
 
 
                         dialog.cancel();
@@ -117,6 +132,19 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
 
         AlertDialog alert11 = builder1.create();
         alert11.show();
+    }
+
+    public void resetBoard()
+    {
+        LevelListDrawable levelList;
+        ImageView iv;
+        for(int i=0; i<9; i++)
+        {
+            iv = btn[i];
+            levelList = (LevelListDrawable)iv.getDrawable();
+            levelList.setLevel(0);
+            status[i] = 0;
+        }
     }
 
     private int checkVictory()

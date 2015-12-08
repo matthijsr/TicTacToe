@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.support.v4.app.FragmentTransaction;
 
+import java.util.Random;
 import java.util.logging.Level;
 
 /**
@@ -27,8 +28,9 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
     }
 
     ImageButton btn[] = new ImageButton[9];
-    int status[] = new int[9];
-    int turn = 1;
+    private int status[] = new int[9];
+    private int turn = 1;
+    public boolean isAI = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +71,12 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
         }
     }
 
+    public void setAI(boolean isToggled)
+    {
+        isAI = isToggled;
+        resetBoard();
+    }
+
     public void setAllListeners(View view)
     {
         btn[0] = (ImageButton) view.findViewById(R.id.space00);
@@ -94,7 +102,27 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
             levelList.setLevel(turn);
             status[pos] = turn;
             changeTurn();
+            if(isAI)
+            {
+                int move = aiRandomMove();
+                v = btn[move];
+                levelList = (LevelListDrawable)v.getDrawable();
+                levelList.setLevel(turn);
+                status[move] = turn;
+                changeTurn();
+            }
         }
+    }
+
+    private int aiRandomMove()
+    {
+        Random r = new Random();
+        int randomSpace = r.nextInt(9);
+        while (status[randomSpace] != 0)
+        {
+            randomSpace = r.nextInt(9);
+        }
+        return randomSpace;
     }
 
     private void changeTurn()

@@ -12,6 +12,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean isAIChecked = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem checkable = menu.findItem(R.id.checkable_ai);
+        MainActivityFragment fragment = (MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
+        isAIChecked = fragment.isAI;
+        checkable.setChecked(isAIChecked);
         return true;
     }
 
@@ -35,8 +41,17 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        MainActivityFragment fragment = (MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            fragment.resetBoard();
+            return true;
+        }
+        else if (id == R.id.checkable_ai) {
+            isAIChecked = !item.isChecked();
+            item.setChecked(isAIChecked);
+            fragment.setAI(isAIChecked);
             return true;
         }
 

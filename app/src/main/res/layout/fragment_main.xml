@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     tools:context="domain.fake.tictactoe.MainActivityFragment"
     android:columnOrderPreserved="false"
-    android:stretchColumns="0,1,2">
+    android:stretchColumns="0,1,2"
+    android:id="@+id/mainfragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -145,6 +146,8 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".5"></TableRow>
+        android:layout_weight=".5">
+
+    </TableRow>
 
 </TableLayout>

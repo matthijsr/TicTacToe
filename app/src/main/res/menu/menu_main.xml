@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="domain.fake.tictactoe.MainActivity">
     <item
+        android:id="@+id/checkable_ai"
+        android:checkable="true"
+        android:title="@string/menu_ai" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

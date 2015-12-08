@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Boter, Kaas en Eieren</string>
-    <string name="action_settings">Instellingen</string>
+    <string name="action_settings">Herstart</string>
     <string name="draw">Het is gelijkspel!</string>
     <string name="hello_blank_fragment">Hoi</string>
     <string name="restart">Herstart</string>
     <string name="victory_part_1">Speler </string>
     <string name="victory_part_2"> wint!</string>
+    <string name="menu_ai">AI</string>
 </resources>

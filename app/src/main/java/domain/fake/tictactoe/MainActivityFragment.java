@@ -31,6 +31,7 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
     private int status[] = new int[9];
     private int turn = 1;
     public boolean isAI = false;
+    public boolean gameEnd = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,7 +103,7 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
             levelList.setLevel(turn);
             status[pos] = turn;
             changeTurn();
-            if(isAI)
+            if(isAI && !gameEnd)
             {
                 int move = aiRandomMove();
                 v = btn[move];
@@ -137,6 +138,7 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
 
     public void showVictory(int player)
     {
+        gameEnd = true;
         AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
         if(player!=3)
         {
@@ -173,6 +175,7 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
             levelList.setLevel(0);
             status[i] = 0;
         }
+        gameEnd = false;
     }
 
     private int checkVictory()
